@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Learn Nielsen’s ten usability heuristics with practical engineering examples, an interactive quiz, flashcards, and an evaluation worksheet."><meta name="theme-color" content="#102d32"><title>Nielsen’s 10 Heuristics — A Practical Field Guide</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to the guide</a>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="#top">NIELSEN <span>/</span> FIELD GUIDE</a><div class="top-actions"><button id="menu-toggle" class="interactive-only" type="button" aria-expanded="false" aria-controls="sidebar" hidden>Contents</button><button id="theme-toggle" class="interactive-only" type="button" aria-pressed="false" hidden>Dark mode</button><button id="print-guide" class="desktop-action interactive-only" type="button" hidden>Print / PDF</button></div></div><div class="reading-track" aria-hidden="true"><div id="reading-progress"></div></div></header>
+<div class="hero" id="top"><div class="eyebrow">Human-centered design · Edition 04</div><h1>Build products<br>people <em>understand.</em></h1><p>Ten enduring usability principles. Everyday memory hooks, engineering decisions, and tools to put them into practice.</p><div class="hero-actions"><a class="button primary" href="#part-1-the-one-page-overview">Start with the overview →</a><a class="button" href="#part-8-self-test-new-scenarios-not-used-above">Test your intuition</a></div><div class="hero-meta"><div><strong>10 principles</strong>One practical framework</div><div><strong>Learn · Apply · Recall</strong>From first read to real evaluation</div></div></div>
+<div class="workspace"><aside class="sidebar" id="sidebar"><p class="sidebar-label">Your field notes</p><nav aria-label="Guide chapters"><a href="#part-1-the-one-page-overview"><small>01</small><span>The One-Page Overview</span></a><a href="#part-2-background-you-need-before-the-details"><small>02</small><span>Background You Need Before the Details</span></a><a href="#part-3-the-ten-heuristics"><small>03</small><span>The Ten Heuristics</span></a><a href="#part-4-when-heuristics-overlap"><small>04</small><span>When Heuristics Overlap</span></a><a href="#part-5-a-worked-case-study-evaluating-a-bank-transfer"><small>05</small><span>A Worked Case Study: Evaluating a Bank Transfer</span></a><a href="#part-6-how-professionals-run-a-heuristic-evaluation"><small>06</small><span>How Professionals Run a Heuristic Evaluation</span></a><a href="#part-7-heuristics-in-2026-accessibility-and-ai"><small>07</small><span>Heuristics in 2026: Accessibility and AI</span></a><a href="#part-8-self-test-new-scenarios-not-used-above"><small>08</small><span>Self-Test (new scenarios, not used above)</span></a><a href="#part-9-how-to-actually-remember-this-for-years"><small>09</small><span>How to Actually Remember This for Years</span></a><a href="#sources-and-further-reading"><small>10</small><span>Sources and Further Reading</span></a></nav><div class="resource"><p class="sidebar-label">Take it with you</p><a href="nielsen-10-heuristics-guide-v4.md" download>Download Markdown guide</a><a href="nielsen-flashcards.csv" download>Download Anki flashcards</a><a href="evaluation-template.csv" download>Download evaluation template</a><p class="hint">Reviewed 7 October 2026.<br>Independent educational guide.</p></div></aside>
+<main id="main" tabindex="-1"><noscript><p class="no-js-message">The complete guide and answer disclosures work without JavaScript. Enable JavaScript for search, quiz scoring, flashcards, and CSV export.</p></noscript>
+<div class="search-panel interactive-only" hidden><div class="search-row"><label for="guide-search">Find a concept<input type="search" id="guide-search" placeholder="Try “undo”, “severity”, or “keyboard”" autocomplete="off"></label><button id="clear-search" type="button">Clear</button></div><p id="search-status" class="hint" role="status">Search across all chapters, including collapsed heuristics.</p><ol id="search-results" hidden></ol></div>
+<section class="chapter" aria-labelledby="choose-your-path"><span class="section-label">START HERE</span><h2 tabindex="-1" id="choose-your-path">Choose your path</h2><p>Recognize the principles, apply them in software, and practice recalling them. Pick the route that fits your time today.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table><thead><tr><th scope="col">Time available</th><th scope="col">Your route</th></tr></thead><tbody><tr><td>2 minutes</td><td><a href="#part-1-the-one-page-overview">The one-page overview</a></td></tr><tr><td>20 minutes</td><td><a href="#part-3-the-ten-heuristics">Explore the ten heuristics</a></td></tr><tr><td>An hour + a real project</td><td><a href="#part-4-when-heuristics-overlap">Overlaps</a>, <a href="#part-5-a-worked-case-study-evaluating-a-bank-transfer">bank-transfer case</a>, and <a href="#part-6-how-professionals-run-a-heuristic-evaluation">evaluation method</a>, then the self-test</td></tr></tbody></table></div></section><section class="chapter" aria-labelledby="part-1-the-one-page-overview"><span class="section-label">CHAPTER 01</span><h2 tabindex="-1" id="part-1-the-one-page-overview">Part 1: The One-Page Overview</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Heuristic</th>
+<th>Everyday memory hook</th>
+<th>The question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Visibility of system status</td>
+<td>Elevator floor display</td>
+<td>Does the user know what is happening right now?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Match with the real world</td>
+<td>Road signs</td>
+<td>Do concepts, language, and information order match these users’ world?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>User control and freedom</td>
+<td>Emergency exit</td>
+<td>How does the user take back a mistake?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Consistency and standards</td>
+<td>Car pedals</td>
+<td>Does the same thing always look and work the same?</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Error prevention</td>
+<td>Microwave door interlock</td>
+<td>Which mistakes can I make impossible, or at least unlikely?</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Recognition rather than recall</td>
+<td>Menu with photos</td>
+<td>What am I asking users to remember that I could show?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Flexibility and efficiency</td>
+<td>Staffed till and self-checkout</td>
+<td>Is there a fast path for the 50th time?</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Aesthetic and minimalist design</td>
+<td>Airport signage</td>
+<td>Does this information support the user’s current task?</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Help with errors</td>
+<td>GPS "recalculating"</td>
+<td>Does the error say what happened and what to do?</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Help and documentation</td>
+<td>Information desk</td>
+<td>When users are stuck, what do they find?</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>These memory groups are a teaching aid, not an official classification.</em></p>
+<p><strong>Mnemonic grouping:</strong> <em>Know where you are</em> (1-3), <em>Expect the same thing</em> (4-6), <em>Move fast and stay clean</em> (7-8), <em>When it breaks</em> (9-10).</p>
+<hr />
+</section>
+<section class="chapter" aria-labelledby="part-2-background-you-need-before-the-details"><span class="section-label">CHAPTER 02</span><h2 tabindex="-1" id="part-2-background-you-need-before-the-details">Part 2: Background You Need Before the Details</h2>
+<h3 id="where-the-list-comes-from">Where the list comes from</h3>
+<p>Jakob Nielsen and Rolf Molich proposed an early set of heuristics in 1990. Nielsen refined them in 1994 into the ten used today, based on an analysis of a few hundred real usability problems. The list was lightly revised in later years. That history matters: they are <strong>distilled experience</strong>, not laws of nature, and they were written for screen-based interfaces long before voice and AI assistants.</p>
+<h3 id="three-ideas-from-don-norman-that-make-the-list-easier-to-remember">Three ideas from Don Norman that make the list easier to remember</h3>
+<ul>
+<li><strong>Mental model:</strong> the picture a person has in their head of how something works. Heuristics 2, 4 and 6 are about matching it.</li>
+<li><strong>Gulf of evaluation:</strong> "I did something, what happened?" Heuristics 1 and 9 close it.</li>
+<li><strong>Gulf of execution:</strong> "I know what I want, how do I do it?" Heuristics 6, 7 and 10 close it.</li>
+</ul>
+<h3 id="prevent-warn-or-make-reversible-a-better-way-to-think-about-5-and-3">Prevent, warn, or make reversible? (a better way to think about #5 and #3)</h3>
+<p>Both physical objects and software can enforce constraints. Choose prevention, warnings, or reversibility according to intent, consequences, and the system’s ability to determine validity:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use when</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prevent</strong></td>
+<td>The mistake is never valid</td>
+<td>Reject an impossible date; accept and normalize pasted card-number spaces</td>
+</tr>
+<tr>
+<td><strong>Warn</strong></td>
+<td>It might be intentional, but is risky</td>
+<td>"You wrote 'attached' but there's no attachment"</td>
+</tr>
+<tr>
+<td><strong>Make reversible</strong></td>
+<td>You can't tell intent in advance</td>
+<td>Undo, trash, 30-day recovery</td>
+</tr>
+</tbody>
+</table></div>
+<p>Rule of thumb: the more irreversible and costly the action, the more important an understandable review step and appropriate safeguards become. Avoid repeated generic confirmations: users can learn to dismiss them. Allow valid unusual input; normalize harmless formatting before validation.</p>
+<hr />
+</section>
+<section class="chapter" aria-labelledby="part-3-the-ten-heuristics"><span class="section-label">CHAPTER 03</span><h2 tabindex="-1" id="part-3-the-ten-heuristics">Part 3: The Ten Heuristics</h2>
+<p>Each section has: the rule, a real-life analogy, product examples, <strong>where it is decided in the software</strong>, a way to <strong>measure it</strong>, and the engineering trade-off.</p>
+<p><em>Note on product examples: interfaces change often. Treat named products as illustrations and re-check them before quoting them publicly.</em></p>
+<div class="section-actions interactive-only" hidden><button id="expand-all" type="button">Expand all ten</button><button id="collapse-all" type="button">Collapse all ten</button></div><details class="heuristic" id="1-visibility-of-system-status"><summary><span class="heuristic-number">01</span><h3>Visibility of System Status</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Keep users informed about what is going on, through timely and honest feedback.</p>
+<p><strong>Real life:</strong> You press the elevator button. A lit button and a floor display say, "I heard you, I'm at floor 3." Without them you press it five times.</p>
+<p><strong>In products:</strong> Parcel tracking ("out for delivery"), train departure boards, upload progress indicators, "Saved just now" labels.</p>
+<p><strong>Bad vs good:</strong> You tap "Pay" and the screen freezes for ten seconds, so you tap again and risk paying twice. In the good version the interface immediately acknowledges the request and prevents another click while processing. It says "Payment confirmed" only after confirmation. If the outcome is unknown, it says so and provides a status check instead of inviting another payment.</p>
+<p><strong>Time thresholds (from classic human-computer interaction research, popularized by Nielsen):</strong> about 0.1 s feels instantaneous; about 1 s keeps the user's flow of thought; about 10 s is an approximate attention limit. These are contextual guidelines, not universal deadlines or a reason to delay feedback; acknowledge the action immediately and show appropriate ongoing feedback. See <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">Nielsen’s response-time discussion</a>.</p>
+<p><strong>Where it's decided:</strong> Frontend (loading, success and error states), backend (progress events), product (what "done" means).
+<strong>Measure it:</strong> Time from action to first visible feedback; rate of duplicate submissions.
+<strong>Trade-off:</strong> True progress needs the backend to report it. If it can't, use an honest "working" indicator. A bar that races to 99% and stalls erodes trust.</p>
+<hr />
+</div></details><details class="heuristic" id="2-match-between-the-system-and-the-real-world"><summary><span class="heuristic-number">02</span><h3>Match Between the System and the Real World</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Use words, concepts and symbols your users know, not internal terminology. Present information in a natural, logical order and map controls to their effects. Familiarity depends on the intended audience, not on whether any newcomer understands it.</p>
+<p><strong>Mapping example:</strong> Controls arranged like the burners on a stove are easier to match to their effects than an arbitrary row of identical knobs.</p>
+<p><strong>Real life:</strong> A stop sign says STOP, not "mandatory cessation of vehicular motion."</p>
+<p><strong>In products:</strong> The shopping cart, the trash can, "Send money" instead of "Initiate credit transfer."</p>
+<p><strong>Bad vs good:</strong> <em>"Transaction rollback: constraint violation."</em> versus <em>"We couldn't place your order because one item just sold out. You haven't been charged."</em></p>
+<p><strong>Where it's decided:</strong> Content design, product, and the layer that translates internal errors into user language.
+<strong>Measure it:</strong> Vocabulary tests (ask users what a label means); search queries that use words your UI doesn't.
+<strong>Trade-off:</strong> Needs research with real users and a translation layer; terms must also be localized, not just translated.</p>
+<hr />
+</div></details><details class="heuristic" id="3-user-control-and-freedom"><summary><span class="heuristic-number">03</span><h3>User Control and Freedom</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> People choose things by mistake. Give them a clearly marked way out.</p>
+<p><strong>Real life:</strong> An emergency exit; changing your restaurant order before the kitchen starts.</p>
+<p><strong>In products:</strong> "Undo send" in email, trash folders, the Back button, cancel in checkout.</p>
+<p><strong>Bad vs good:</strong> "Delete account" runs instantly and permanently versus "Scheduled for deletion. You have 30 days to change your mind."</p>
+<p><strong>Where it's decided:</strong> Backend data model (soft delete, retention window), frontend (undo affordance), legal/privacy (how long data can be kept).
+<strong>Measure it:</strong> Support tickets about accidental actions; undo usage rate.
+<strong>Trade-off:</strong> Undo costs storage and complexity, and may conflict with deletion obligations. Match the effort to the severity of the action.</p>
+<hr />
+</div></details><details class="heuristic" id="4-consistency-and-standards"><summary><span class="heuristic-number">04</span><h3>Consistency and Standards</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Don't make people wonder whether different words or actions mean the same thing. Follow conventions.</p>
+<p><strong>Real life:</strong> Conventional passenger cars put the accelerator to the right of the brake. This familiar arrangement helps drivers switch cars; the pedal count and other controls still vary.</p>
+<p><strong>In products:</strong> The "X" closes, the magnifying glass searches, one button style for the primary action. <strong>Jakob's Law:</strong> users spend most of their time on <em>other</em> products, so they expect yours to behave like those.</p>
+<p><strong>Bad vs good:</strong> "Save" is green on page A, "Submit" is gray on page B, and page C autosaves silently, versus consistent language, placement, and styling for equivalent actions. Different actions deserve different labels: "Continue" advances a step; "Send €250" commits a payment. Platform and device conventions may justify different layouts.</p>
+<p><strong>Where it's decided:</strong> Design system, component library, content guidelines.
+<strong>Measure it:</strong> Number of distinct button styles in production; naming audits of labels for the same action.
+<strong>Trade-off:</strong> A design system requires up-front investment and governance. Every "special" screen adds long-term cost.</p>
+<hr />
+</div></details><details class="heuristic" id="5-error-prevention"><summary><span class="heuristic-number">05</span><h3>Error Prevention</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Better than a good error message is a design that prevents the problem.</p>
+<p><strong>Real life:</strong> A microwave won't start with the door open. A keyed connector fits only in its intended orientation. These physical interlocks are called <em>forcing functions</em>.</p>
+<p><strong>Slips vs mistakes:</strong> A <em>slip</em> is an accidental action despite a correct intention (tapping Delete instead of Edit). A <em>mistake</em> follows an incorrect mental model (believing an instant payment can be cancelled later). Constraints and spacing help prevent slips; clearer concepts and review steps help prevent mistakes.</p>
+<p><strong>In products:</strong> Disabled past dates in a booking calendar; format hints ("DD/MM/YYYY") before typing; a warning when you mention an attachment but forgot it.</p>
+<p><strong>Real example from Italy and the euro area:</strong> The euro-area compliance date for the Verification of Payee provisions is <strong>9 October 2025</strong>. The service checks the payee information before authorization, for ordinary and instant euro credit transfers; a typical personal transfer compares name and IBAN. Explain match, close match, mismatch, and unavailable outcomes clearly. A warning is not a guarantee against fraud. Consult <a href="https://eur-lex.europa.eu/eli/reg/2024/886/oj/eng">Regulation (EU) 2024/886, Article 5c</a> for scope, exceptions, and other implementation dates. That's <em>warn</em> applied to a high-stakes, hard-to-reverse action.</p>
+<p><strong>Where it's decided:</strong> Frontend (input constraints, confirmations) <em>and</em> backend (server-side validation, never trust the client).
+<strong>Measure it:</strong> Rate of validation failures per field; rate of corrected submissions after warnings.
+<strong>Trade-off:</strong> Over-restriction blocks valid unusual input (long surnames, international phone numbers). Prefer warnings over hard blocks when intent is ambiguous.</p>
+<hr />
+</div></details><details class="heuristic" id="6-recognition-rather-than-recall"><summary><span class="heuristic-number">06</span><h3>Recognition Rather Than Recall</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Minimize the memory load. Make options visible.</p>
+<p><strong>Real life:</strong> A menu with photos; supermarket aisle signs.</p>
+<p><strong>In products:</strong> Contacts lists, "continue watching" rows, recent searches, suggestions while typing.</p>
+<p><strong>Bad vs good:</strong> A search that only works with an exact product code versus suggestions with names and pictures.</p>
+<p><strong>Where it's decided:</strong> Frontend, search/backend (autocomplete), data privacy (what history you keep).
+<strong>Measure it:</strong> Search abandonment; time to find an item; reliance on exact-match queries.
+<strong>Trade-off:</strong> Suggestions may benefit from caching and delayed querying (debouncing), depending on latency and cost. Keep suggestions relevant and keyboard-accessible; give users control over saved history and a way to clear it.</p>
+<hr />
+</div></details><details class="heuristic" id="7-flexibility-and-efficiency-of-use"><summary><span class="heuristic-number">07</span><h3>Flexibility and Efficiency of Use</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Accelerators the novice doesn't need can speed up the expert's work. Support both.</p>
+<p><strong>Real life:</strong> A supermarket with staffed tills and self-checkout; a car with automatic and manual modes.</p>
+<p><strong>In products:</strong> Keyboard shortcuts alongside menus, bulk selection, saved payees and templates, voice alongside touch.</p>
+<p><strong>Bad vs good:</strong> Archiving 40 emails requires opening each one versus select all plus one action.</p>
+<p><strong>Where it's decided:</strong> Product (what repeated tasks exist), frontend, API design (a good API lets you add shortcuts cheaply).
+<strong>Measure it:</strong> Steps and time for the five most frequent tasks; how many users adopt shortcuts.
+<strong>Trade-off:</strong> Every extra path must be built, tested and documented. First perfect the main path, then add accelerators where behavior shows repetition.</p>
+<hr />
+</div></details><details class="heuristic" id="8-aesthetic-and-minimalist-design"><summary><span class="heuristic-number">08</span><h3>Aesthetic and Minimalist Design</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Every extra unit of information competes with the relevant ones.</p>
+<p><strong>Real life:</strong> Airport signs use a few big words and arrows; a 60-button remote versus a simple one.</p>
+<p><strong>In products:</strong> A search page with one box; settings that show common options first and tuck advanced ones under "More."</p>
+<p><strong>Bad vs good:</strong> A checkout with banners, pop-ups and seven links beside the "Pay" button versus summary, delivery details and one clear "Pay."</p>
+<p><strong>Where it's decided:</strong> Product prioritization, design, and the business stakeholders who ask for "just one more banner."
+<strong>Measure it:</strong> Task completion time; click-through to the primary action; number of competing calls to action per screen.
+<strong>Trade-off:</strong> Minimalism isn't fewer features; it's prioritization. Don't hide critical information or damage accessibility (very light gray text on white looks clean and is hard to read).</p>
+<hr />
+</div></details><details class="heuristic" id="9-help-users-recognize-diagnose-and-recover-from-errors"><summary><span class="heuristic-number">09</span><h3>Help Users Recognize, Diagnose, and Recover from Errors</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Express errors in plain language, indicate the problem precisely, and suggest a solution.</p>
+<p><strong>Real life:</strong> A GPS says "Road closed ahead, recalculating" and gives a new route. A dashboard says "Low tyre pressure, front left."</p>
+<p><strong>In products:</strong> Inline field messages, "Your card was declined; try another card or contact your bank."</p>
+<p><strong>Bad vs good:</strong> <em>"Something went wrong."</em> versus <em>"We couldn't reach the server. Your draft is saved on this device. Reconnect and try again." Use this only when the save and the safe retry are verified.</em></p>
+<p><strong>State-dependent promises:</strong> "You haven’t been charged," "Your draft is saved," and "Try again" require evidence from the system. A timeout does not prove that an operation failed. For consequential actions, distinguish success, confirmed failure, and unknown outcome.</p>
+<p><strong>Where it's decided:</strong> A shared error taxonomy (codes, fields, messages) across backend and frontend; content design.
+<strong>Measure it:</strong> Support contacts per error type; retry-success rate after an error is shown.
+<strong>Trade-off:</strong> Be helpful without leaking internals (stack traces, query details). Reserve technical details for logs and for a short reference code users can quote to support.</p>
+<hr />
+</div></details><details class="heuristic" id="10-help-and-documentation"><summary><span class="heuristic-number">10</span><h3>Help and Documentation</h3></summary><div class="heuristic-body">
+<p><strong>Rule:</strong> Best if no explanation is needed. If it is, make it easy to search, task-focused and concise.</p>
+<p><strong>Real life:</strong> The information desk in a station; the manual in the glove box you only open when a warning light appears.</p>
+<p><strong>In products:</strong> "Learn more" next to a confusing setting, a skippable first-use tour, a help center organized by tasks.</p>
+<p><strong>Bad vs good:</strong> A 90-page PDF in the footer versus a short explanation right where the question arises, with a link to more.</p>
+<p><strong>Where it's decided:</strong> Product, support, documentation; ideally the same team that changes the feature.
+<strong>Measure it:</strong> Search terms with zero results in help; support tickets that a help article could have answered.
+<strong>Trade-off:</strong> Documentation rots. Give it an owner and update it in the same change as the feature.</p>
+<hr />
+</div></details><h3 id="measure-outcomes-interpret-diagnostic-signals">Measure outcomes, interpret diagnostic signals</h3>
+<p>The metrics above are candidates, not scores for compliance. Choose a task, audience, baseline, time window, and denominator before comparing changes. Segment by novice/expert users and device where useful; use privacy-conscious telemetry.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Diagnostic signal</th>
+<th>Why it can mislead</th>
+<th>Pair it with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undo usage increases</td>
+<td>Better discovery or more accidental actions</td>
+<td>Accidental-action rate and successful recovery</td>
+</tr>
+<tr>
+<td>Fewer button styles</td>
+<td>Visual uniformity can hide different meanings</td>
+<td>Task success and label comprehension</td>
+</tr>
+<tr>
+<td>More shortcut adoption</td>
+<td>Adoption alone does not prove efficiency</td>
+<td>Completion time and error rate for repeated tasks</td>
+</tr>
+<tr>
+<td>More clicks on Pay</td>
+<td>May include repeat clicks or accidental commitment</td>
+<td>Correct completed payments and duplicate rate</td>
+</tr>
+<tr>
+<td>Fewer help contacts</td>
+<td>Users may have given up</td>
+<td>Task completion and unresolved help searches</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section class="chapter" aria-labelledby="part-4-when-heuristics-overlap"><span class="section-label">CHAPTER 04</span><h2 tabindex="-1" id="part-4-when-heuristics-overlap">Part 4: When Heuristics Overlap</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Combine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A mistake still happens despite prevention</td>
+<td>#5 prevents, #9 recovers, #3 reverses</td>
+</tr>
+<tr>
+<td>Screen is cluttered and hard to scan</td>
+<td>#8 first (remove), then #6 (show what remains clearly)</td>
+</tr>
+<tr>
+<td>Inconsistent wording confuses users</td>
+<td>#4 (consistent) using words from #2 (real world)</td>
+</tr>
+<tr>
+<td>Shortcut is fast but can cause damage</td>
+<td>#7 balanced with #3 and #5</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+</section>
+<section class="chapter" aria-labelledby="part-5-a-worked-case-study-evaluating-a-bank-transfer"><span class="section-label">CHAPTER 05</span><h2 tabindex="-1" id="part-5-a-worked-case-study-evaluating-a-bank-transfer">Part 5: A Worked Case Study: Evaluating a Bank Transfer</h2>
+<p><em>This is an illustrative, composite flow, not a study of a specific bank. Findings and ratings below are hypotheses for teaching, not observations of real participants. Assume mobile use by a first-time payer, unreliable connectivity, and a transfer that cannot be directly undone after authorization.</em></p>
+<p><strong>Task:</strong> Send 250 euro to a friend using a banking app.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Finding</th>
+<th>Heuristic</th>
+<th>Severity (0-4)</th>
+<th>Suggested fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>After tapping "Confirm," nothing changes for about 4 seconds; repeat tapping is possible</td>
+<td>1 / 5</td>
+<td>3</td>
+<td>Disable button, show progress, prevent duplicate submit on the server</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The screen is titled "Payment instruction SCT"</td>
+<td>2</td>
+<td>2</td>
+<td>Rename to "Bank transfer"</td>
+</tr>
+<tr>
+<td>3</td>
+<td>An instant transfer can't be undone by the user, and the summary doesn't say so</td>
+<td>3 / 5</td>
+<td>3</td>
+<td>Clear final summary (amount, name, IBAN) plus a note that it's immediate</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Primary button is green with "Confirm" on step 1, blue with "Continue" on step 3</td>
+<td>4</td>
+<td>2</td>
+<td>Consistent styling; "Continue" for navigation and "Send €250" for commitment</td>
+</tr>
+<tr>
+<td>5</td>
+<td>IBAN field rejects spaces only after submit</td>
+<td>5</td>
+<td>2</td>
+<td>Accept spaces and lowercase; format as you type</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The payee must be typed in again every time</td>
+<td>6 / 7</td>
+<td>2</td>
+<td>Saved payees and recent recipients</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No "repeat last transfer" for frequent payers</td>
+<td>7</td>
+<td>2</td>
+<td>Add template or repeat action</td>
+</tr>
+<tr>
+<td>8</td>
+<td>A loan banner pushes the amount below the fold on the confirmation screen</td>
+<td>8</td>
+<td>3</td>
+<td>Remove the promo from this step</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Failure shows "Operation failed (code 4012)" and doesn't say whether money moved</td>
+<td>9</td>
+<td>4</td>
+<td>Show confirmed success, confirmed failure, or "outcome being checked"; provide status lookup and a reference; avoid unsafe retry</td>
+</tr>
+<tr>
+<td>10</td>
+<td>"Need help?" opens the help-center home page</td>
+<td>10</td>
+<td>2</td>
+<td>Link to the article about transfers</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Positive: name-and-IBAN check shows a clear "close match" warning</td>
+<td>5 / 9</td>
+<td>n/a</td>
+<td>Keep; this is working well</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Reading the result:</strong> These are provisional ratings. Investigate #9 first because uncertainty can lead to duplicate payments or serious financial harm; then #1, #3, and #8. Determine actual frequency, impact, and persistence before prioritizing the remaining findings. Missing a repeat feature is an efficiency problem only when the task and audience require it, not automatically a cosmetic issue.</p>
+<p><strong>Severity rationale for #9:</strong> Frequency is unknown without evidence; impact is potentially high; the problem persists if the user has no reliable way to check the outcome. A provisional 4 is justified only if that risk blocks safe release. Confidence in this teaching example is low. Record what evidence would confirm or lower the rating.</p>
+<p><strong>Engineering acceptance criteria:</strong>
+- The interface acknowledges submission immediately and exposes processing status to assistive technology.
+- Requests for the same payment attempt use a server-recognized idempotency key; retries do not create another payment. A new intentional payment has a new key.
+- On a timeout, the UI checks the existing operation’s status before offering a new submission.
+- Status can distinguish confirmed success, confirmed failure, and an unresolved outcome.
+- Recovery preserves entered data and offers a reference and a safe escalation path.</p>
+<p>These criteria connect design with backend behavior; test slow responses, disconnections, repeated taps, and keyboard/screen-reader interaction.</p>
+<hr />
+</section>
+<section class="chapter" aria-labelledby="part-6-how-professionals-run-a-heuristic-evaluation"><span class="section-label">CHAPTER 06</span><h2 tabindex="-1" id="part-6-how-professionals-run-a-heuristic-evaluation">Part 6: How Professionals Run a Heuristic Evaluation</h2>
+<ol>
+<li><strong>Define scope and context.</strong> Record user groups, goals, representative tasks, device, platform, build/version, and states to inspect (empty, loading, success, failure, offline). Do not infer observed user behavior from expert inspection.</li>
+<li><strong>Choose 3 to 5 evaluators.</strong> In classic studies, a single evaluator found roughly a third of problems on average, and a small group catches most of them. Treat these figures as ballpark, not guarantees.</li>
+<li><strong>Evaluate independently first</strong>, walking through realistic tasks with the ten heuristics in hand.</li>
+<li><strong>Consolidate</strong> findings into one list, deduplicating the underlying problem without losing affected tasks or evidence. Assign one primary heuristic and secondary ones when useful; do not count one issue repeatedly because it violates several heuristics.</li>
+<li><strong>Rate severity independently after consolidation.</strong> Give each evaluator the full problem list and enough context. Weigh frequency, impact, and persistence; record a rationale, confidence, and disagreements before agreeing on a rating. Frequency may be estimated during inspection: label estimates as estimates, not measured data. See <a href="https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/">Nielsen’s severity method</a>.</li>
+</ol>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Not a usability problem</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Cosmetic only</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Minor</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Major, high priority</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Catastrophe, fix before release</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="6">
+<li><strong>Prioritize and verify.</strong> Use severity with risk, reach, and dependencies; keep implementation effort separate from severity. Reinspect the fix and verify task success with representative users. Document acceptance criteria and the outcome.</li>
+</ol>
+<h3 id="reusable-finding-template">Reusable finding template</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID and scope</td>
+<td>Unique ID, feature/build, task, user group, device</td>
+</tr>
+<tr>
+<td>Reproduction</td>
+<td>Preconditions and steps; expected vs actual behavior</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Screenshot/reference, expert observation, or user-test evidence</td>
+</tr>
+<tr>
+<td>Consequence</td>
+<td>What the user cannot do, misunderstands, or risks losing</td>
+</tr>
+<tr>
+<td>Heuristics</td>
+<td>Primary plus relevant secondary heuristics</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>0–4 with frequency, impact, and persistence rationale</td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>Low/medium/high, with missing evidence or disagreements</td>
+</tr>
+<tr>
+<td>Proposed fix</td>
+<td>A hypothesis to validate, not a mandated implementation</td>
+</tr>
+<tr>
+<td>Acceptance criteria</td>
+<td>Observable conditions that demonstrate recovery or improvement</td>
+</tr>
+<tr>
+<td>Follow-through</td>
+<td>Owner, status, and verification result</td>
+</tr>
+</tbody>
+</table></div>
+<p>Use the companion <a href="evaluation-template.csv">evaluation template</a>. The HTML edition includes a worksheet and CSV export. Keep identifying or financial data out of shared findings.</p>
+<h3 id="what-heuristics-cannot-do">What heuristics cannot do</h3>
+<ul>
+<li>They aren't proof. They don't replace <strong>usability testing with real users</strong>.</li>
+<li>They find <em>likely</em> problems, including false alarms, and can miss problems specific to your audience.</li>
+<li>They don't guarantee accessibility. Test against WCAG as well.</li>
+</ul>
+<hr />
+<div class="tool-panel interactive-only" id="evaluation-workbench" hidden>
+<h3>Evaluation workbench</h3><p class="hint">Build a finding list, then export it. Findings stay in this tab’s memory and disappear on reload; download before leaving. Use anonymized examples, not personal or banking data.</p>
+<form id="finding-form"><div class="form-grid">
+<label>Task / user group / device<input name="scope" required maxlength="300" placeholder="Send a transfer · first-time payer · mobile"></label>
+<label>Evidence type<select name="evidenceType"><option>Expert inspection</option><option>User test</option><option>Telemetry</option><option>Illustrative hypothesis</option></select></label>
+<label class="wide">Problem and user consequence<textarea name="problem" required maxlength="2000" placeholder="After submission, no status appears; a payer may send again."></textarea></label>
+<label class="wide">Reproduction and evidence<textarea name="evidence" required maxlength="2000" placeholder="Build, steps, expected vs actual behavior, screenshot reference."></textarea></label>
+<label>Primary heuristic<select name="heuristic" id="finding-heuristic"></select></label>
+<label>Secondary heuristics<input name="secondary" maxlength="100" placeholder="For example: 3, 5"></label>
+<label>Severity<select name="severity"><option value="0">0 · Not a usability problem</option><option value="1">1 · Cosmetic</option><option value="2" selected>2 · Minor</option><option value="3">3 · Major</option><option value="4">4 · Catastrophe</option></select></label>
+<label>Confidence<select name="confidence"><option>Low</option><option selected>Medium</option><option>High</option></select></label>
+<label class="wide">Severity rationale<textarea name="rationale" required maxlength="2000" placeholder="Frequency (measured or estimated), impact, persistence, missing evidence."></textarea></label>
+<label class="wide">Proposed fix and acceptance criteria<textarea name="fix" required maxlength="2000" placeholder="A testable change and the observable result expected."></textarea></label>
+<label>Owner<input name="owner" maxlength="150" placeholder="Team or role"></label><label>Status<select name="status"><option>To validate</option><option>Confirmed</option><option>In progress</option><option>Verified</option></select></label>
+<label class="wide">Verification result (optional)<textarea name="verification" maxlength="2000" placeholder="What was checked, with whom, and what changed? Leave blank until verified."></textarea></label>
+</div><div class="section-actions"><button class="primary" type="submit">Add finding</button><button id="export-findings" type="button" disabled>Export CSV</button></div></form>
+<p id="finding-status" role="status"></p><div id="finding-list" class="finding-list"></div></div></section>
+<section class="chapter" aria-labelledby="part-7-heuristics-in-2026-accessibility-and-ai"><span class="section-label">CHAPTER 07</span><h2 tabindex="-1" id="part-7-heuristics-in-2026-accessibility-and-ai">Part 7: Heuristics in 2026: Accessibility and AI</h2>
+<h3 id="accessibility-selected-wcag-22-criteria-at-levels-a-and-aa">Accessibility (selected WCAG 2.2 criteria at levels A and AA)</h3>
+<p>Conformance to AA requires meeting all applicable A and AA criteria, not just this sample. Heuristic inspection and automated checks alone do not establish conformance.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Practical check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.4.3 Contrast (Minimum), AA</td>
+<td>At least 4.5:1 for normal text and 3:1 for large text, with specified exceptions</td>
+</tr>
+<tr>
+<td>2.1.1 Keyboard, A</td>
+<td>Functionality works by keyboard, except inherently path-dependent input</td>
+</tr>
+<tr>
+<td>2.4.7 Focus Visible, AA; 2.4.11 Focus Not Obscured (Minimum), AA</td>
+<td>Keyboard focus is visible and not entirely hidden by author-created content</td>
+</tr>
+<tr>
+<td>1.4.1 Use of Color, A</td>
+<td>Color is not the only way to convey information</td>
+</tr>
+<tr>
+<td>2.5.8 Target Size (Minimum), AA</td>
+<td>Pointer targets are at least 24 × 24 CSS pixels, or meet a specified exception such as sufficient spacing; not a touch-only rule</td>
+</tr>
+<tr>
+<td>3.3.1 Error Identification, A</td>
+<td>Detected input errors identify the item and describe the error in text</td>
+</tr>
+<tr>
+<td>4.1.3 Status Messages, AA</td>
+<td>Status messages can be identified programmatically without moving focus; an animated spinner alone is insufficient</td>
+</tr>
+</tbody>
+</table></div>
+<p>Test keyboard, zoom/reflow, contrast, focus, and representative screen-reader flows. Start with <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> and the <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum/">target-size explanation and exceptions</a>.</p>
+<h3 id="interfaces-with-ai-assistants">Interfaces with AI assistants</h3>
+<p>The ten still apply; here is how they tend to show up:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Heuristic</th>
+<th>Typical question for an AI feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Status</td>
+<td>Does the user see what the assistant is doing (searching, reading, writing)?</td>
+</tr>
+<tr>
+<td>3 Control</td>
+<td>Is there a clear stop, undo, and regenerate? Can the user edit before anything irreversible happens?</td>
+</tr>
+<tr>
+<td>5 Prevention</td>
+<td>Are review and confirmation proportional to risk, reversibility, and authorization already granted, especially before consequential actions?</td>
+</tr>
+<tr>
+<td>6 Recognition</td>
+<td>Are example prompts and sources visible so users don't need to guess what to ask?</td>
+</tr>
+<tr>
+<td>9 Errors</td>
+<td>Does the system state uncertainty and make wrong-but-plausible answers easy to check (sources, citations)?</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>AI-specific checks:</strong> A stop button must explain whether it stops generation, a running action, or both. Regenerate does not undo external effects. Citations help verification only when they actually support the claim; their presence is not proof of correctness. Communicate capability limits, personal-data use, and how users can correct or escalate an output.</p>
+<p>Newer questions, such as how to communicate what the system <em>cannot</em> do or how it uses personal data, go beyond the original list. Treat the heuristics as a starting point there.</p>
+<hr />
+</section>
+<section class="chapter" aria-labelledby="part-8-self-test-new-scenarios-not-used-above"><span class="section-label">CHAPTER 08</span><h2 tabindex="-1" id="part-8-self-test-new-scenarios-not-used-above">Part 8: Self-Test (new scenarios, not used above)</h2>
+<p>For each scenario, name the main heuristic, explain the user consequence, and propose a change. Several heuristics can apply; a justified alternative may be valid. Click to reveal a suggested answer, not an exhaustive diagnosis.</p>
+<ol>
+<li>A delivery app says "Order confirmed" and shows nothing else until the courier arrives.</li>
+</ol>
+<details><summary>Answer</summary>#1 Visibility of system status: no feedback on preparation or location.</details>
+
+<ol start="2">
+<li>Swiping left on a downloaded episode deletes it instantly, with no undo.</li>
+</ol>
+<details><summary>Answer</summary>#3 User control and freedom (and #5 if the swipe is easy to trigger accidentally).</details>
+
+<ol start="3">
+<li>In two otherwise equivalent screens on the same platform, "Search" changes position without a task-related reason.</li>
+</ol>
+<details><summary>Answer</summary>#4 Consistency and standards: users must relearn where to find it. Use a predictable location. Different devices or platform conventions can justify differences.</details>
+
+<ol start="4">
+<li>A flight site lets you pick a return date before the departure date and complains afterwards.</li>
+</ol>
+<details><summary>Answer</summary>#5 Error prevention (disable invalid dates).</details>
+
+<ol start="5">
+<li>A thermostat requires typing codes like "M3-7" to choose a mode.</li>
+</ol>
+<details><summary>Answer</summary>#6 Recognition rather than recall (and #2 for non-human wording).</details>
+
+<ol start="6">
+<li>A tax site only offers a step-by-step wizard and no way to import last year's data.</li>
+</ol>
+<details><summary>Answer</summary>#7 Flexibility and efficiency of use.</details>
+
+<ol start="7">
+<li>A news homepage has an autoplaying video, three pop-ups and a chat bubble.</li>
+</ol>
+<details><summary>Answer</summary>#8 Aesthetic and minimalist design.</details>
+
+<ol start="8">
+<li>A failed upload says "Error: invalid payload."</li>
+</ol>
+<details><summary>Answer</summary>#9 Help with errors (and #2: it uses developer language).</details>
+
+<ol start="9">
+<li>A settings page shows a toggle called "Enable X-sync v2" with no explanation.</li>
+</ol>
+<details><summary>Answer</summary>#10 Help and documentation (and #2).</details>
+
+<ol start="10">
+<li>On a ticket machine, "Cancel" sometimes goes back one step and sometimes aborts the purchase.</li>
+</ol>
+<details><summary>Answer</summary>#4 Consistency (and #3, since users can't predict how to get out).</details>
+
+<hr />
+<div class="tool-panel interactive-only" id="quiz-panel" hidden><h3>Try the interactive quiz</h3><p>Choose the main heuristic for each scenario. Feedback gives one suggested diagnosis; explain your reasoning before checking.</p><form id="quiz-form"><div id="quiz-questions"></div><div class="section-actions"><button type="submit" class="primary">Check my answers</button><button type="button" id="reset-quiz">Reset quiz</button></div><p id="quiz-score" class="quiz-result" role="status"></p></form></div></section>
+<section class="chapter" aria-labelledby="part-9-how-to-actually-remember-this-for-years"><span class="section-label">CHAPTER 09</span><h2 tabindex="-1" id="part-9-how-to-actually-remember-this-for-years">Part 9: How to Actually Remember This for Years</h2>
+<p>Practice <strong>retrieving the information repeatedly over time</strong>, rather than relying only on rereading. The schedule below is a practical starting point, not a universal prescription; shorten intervals for concepts you confuse and increase them as recall improves.</p>
+<ol>
+<li><strong>Day 0:</strong> Read the overview, then do the self-test without looking.</li>
+<li><strong>Day 2, 7, 21, 60:</strong> Review the flashcards (use <a href="nielsen-flashcards.csv">the companion CSV</a>, importable into Anki as Front/Back fields with comma separation and a header row to skip) and test yourself on the "question to ask" column.</li>
+<li><strong>Every time you use an app or machine this week:</strong> Name the heuristic you notice. Explain why the example fits and what evidence might change your interpretation.</li>
+<li><strong>Within a month:</strong> Evaluate one real flow you own, using the Part 5 table as a template.</li>
+</ol>
+<hr />
+<div class="tool-panel interactive-only" id="flashcards-panel" hidden><h3>Recall before revealing</h3><p class="hint">Read the question, recall the heuristic, then reveal the answer. Use the CSV for spaced review in Anki.</p><div class="flashcard"><span id="card-counter" class="card-counter"></span><h4 id="card-question"></h4><div id="card-answer" hidden></div></div><div class="section-actions"><button id="card-prev" type="button">Previous</button><button id="card-reveal" class="primary" type="button" aria-expanded="false" aria-controls="card-answer">Reveal answer</button><button id="card-next" type="button">Next</button></div><p id="card-status" class="hint" role="status"></p></div></section>
+<section class="chapter" aria-labelledby="sources-and-further-reading"><span class="section-label">REFERENCE DESK</span><h2 tabindex="-1" id="sources-and-further-reading">Sources and Further Reading</h2>
+<ul>
+<li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/">Jakob Nielsen, 10 Usability Heuristics for User Interface Design</a> — the canonical definitions; this guide paraphrases them.</li>
+<li><a href="https://doi.org/10.1145/97243.97281">Nielsen &amp; Molich (1990), Heuristic Evaluation of User Interfaces, CHI ’90</a></li>
+<li><a href="https://doi.org/10.1145/191666.191729">Nielsen (1994), Enhancing the Explanatory Power of Usability Heuristics, CHI ’94</a></li>
+<li><a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/">NN/g, How to Conduct a Heuristic Evaluation</a> — planning and independent inspection.</li>
+<li><a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/theory-heuristic-evaluations/">NN/g, The Theory Behind Heuristic Evaluations</a> — the historical evaluator findings, including 35% averaged over six projects, not a universal detection rate.</li>
+<li><a href="https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/">NN/g, Severity Ratings for Usability Problems</a> — severity factors and independent ratings.</li>
+<li><a href="https://www.nngroup.com/articles/response-times-3-important-limits/">NN/g, Response Times: The 3 Important Limits</a> — contextual timing guidelines.</li>
+<li><a href="https://mitpress.mit.edu/9780262525671/the-design-of-everyday-things/">Donald Norman, The Design of Everyday Things</a> — mental models and interaction concepts. The links to individual heuristics here are teaching interpretations.</li>
+<li><a href="https://www.w3.org/TR/WCAG22/">W3C, WCAG 2.2</a> and <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum/">Understanding Target Size (Minimum)</a> — normative requirements and explanatory guidance.</li>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2024/886/oj/eng">Regulation (EU) 2024/886</a> — see Article 5c for Verification of Payee scope and deadlines.</li>
+<li><a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. (2013), Improving Students’ Learning With Effective Learning Techniques</a> — practice testing and distributed practice; the proposed review days are this guide’s practical suggestion.</li>
+</ul>
+<p><em>Editorial verification: canonical definitions, the severity procedure, selected WCAG criteria, and the cited regulatory text inform this edition. Product examples and the banking case are illustrations, not verified product audits. Engineering acceptance criteria, mnemonic groups, and the review schedule are recommendations from this guide, not requirements attributed to Nielsen.</em></p></section>
+</main></div><footer class="site-footer"><div><span>Nielsen / Field Guide · Edition 4 · Built for thoughtful product teams.</span><a href="#sources-and-further-reading">Sources &amp; attribution</a><a href="#top">Back to top ↑</a></div></footer><script id="guide-data" type="application/json">{"cards": [{"number": 1, "name": "Visibility of system status", "hook": "Elevator floor display", "question": "Does the user know what is happening right now?"}, {"number": 2, "name": "Match with the real world", "hook": "Road signs", "question": "Do concepts, language, and information order match these users’ world?"}, {"number": 3, "name": "User control and freedom", "hook": "Emergency exit", "question": "How does the user take back a mistake?"}, {"number": 4, "name": "Consistency and standards", "hook": "Car pedals", "question": "Does the same thing always look and work the same?"}, {"number": 5, "name": "Error prevention", "hook": "Microwave door interlock", "question": "Which mistakes can I make impossible, or at least unlikely?"}, {"number": 6, "name": "Recognition rather than recall", "hook": "Menu with photos", "question": "What am I asking users to remember that I could show?"}, {"number": 7, "name": "Flexibility and efficiency", "hook": "Staffed till and self-checkout", "question": "Is there a fast path for the 50th time?"}, {"number": 8, "name": "Aesthetic and minimalist design", "hook": "Airport signage", "question": "Does this information support the user’s current task?"}, {"number": 9, "name": "Help with errors", "hook": "GPS \"recalculating\"", "question": "Does the error say what happened and what to do?"}, {"number": 10, "name": "Help and documentation", "hook": "Information desk", "question": "When users are stuck, what do they find?"}], "quiz": [{"question": "A delivery app says \"Order confirmed\" and shows nothing else until the courier arrives.", "explanation": "#1 Visibility of system status: no feedback on preparation or location.", "answer": 1}, {"question": "Swiping left on a downloaded episode deletes it instantly, with no undo.", "explanation": "#3 User control and freedom (and #5 if the swipe is easy to trigger accidentally).", "answer": 3}, {"question": "In two otherwise equivalent screens on the same platform, \"Search\" changes position without a task-related reason.", "explanation": "#4 Consistency and standards: users must relearn where to find it. Use a predictable location. Different devices or platform conventions can justify differences.", "answer": 4}, {"question": "A flight site lets you pick a return date before the departure date and complains afterwards.", "explanation": "#5 Error prevention (disable invalid dates).", "answer": 5}, {"question": "A thermostat requires typing codes like \"M3-7\" to choose a mode.", "explanation": "#6 Recognition rather than recall (and #2 for non-human wording).", "answer": 6}, {"question": "A tax site only offers a step-by-step wizard and no way to import last year's data.", "explanation": "#7 Flexibility and efficiency of use.", "answer": 7}, {"question": "A news homepage has an autoplaying video, three pop-ups and a chat bubble.", "explanation": "#8 Aesthetic and minimalist design.", "answer": 8}, {"question": "A failed upload says \"Error: invalid payload.\"", "explanation": "#9 Help with errors (and #2: it uses developer language).", "answer": 9}, {"question": "A settings page shows a toggle called \"Enable X-sync v2\" with no explanation.", "explanation": "#10 Help and documentation (and #2).", "answer": 10}, {"question": "On a ticket machine, \"Cancel\" sometimes goes back one step and sometimes aborts the purchase.", "explanation": "#4 Consistency (and #3, since users can't predict how to get out).", "answer": 4}]}</script></body></html>
